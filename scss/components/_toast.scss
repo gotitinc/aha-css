@@ -1,14 +1,15 @@
 @charset "UTF-8";
 /* stylelint-disable scss/selector-no-union-class-name */
 
-/* fork from react-toastify */
+/* fork from react-toastify@7.0.4 */
+$rt-namespace: "Toastify";
 $rt-toast-width: 320px !default;
 $rt-toast-background: #fff !default;
 $rt-toast-min-height: 64px !default;
 $rt-toast-max-height: 800px !default;
 
 $rt-color-default: #fff !default;
-$rt-color-dark: map-deep-get($colors-render, 'background', 'dark') !default;
+$rt-color-dark: map-deep-get($colors-render, "background", "dark") !default;
 $rt-color-info: var(--colorInformation) !default;
 $rt-color-success: var(--colorPositive) !default;
 $rt-color-warning: var(--colorWarning) !default;
@@ -21,7 +22,9 @@ $rt-color-progress-dark: #bb86fc !default;
 $rt-mobile: "only screen and (max-width : 480px)" !default;
 $rt-z-index: 9999 !default;
 
-.Toastify__toast {
+/* react-toastify/scss/_toast.scss */
+
+.#{$rt-namespace}__toast {
   padding: 16px;
   position: relative;
   min-height: $rt-toast-min-height;
@@ -72,7 +75,20 @@ $rt-z-index: 9999 !default;
   }
 }
 
-.Toastify__toast-container {
+.#{$rt-namespace}--animate {
+  animation-fill-mode: both;
+  animation-duration: 0.7s;
+}
+
+@media #{$rt-mobile} {
+  .#{$rt-namespace}__toast {
+    margin-bottom: 0;
+  }
+}
+
+/* react-toastify/scss/_toastContainer.scss */
+
+.#{$rt-namespace}__toast-container {
   z-index: $rt-z-index;
   transform: translate3d(0, 0, #{$rt-z-index}px);
   position: fixed;
@@ -115,7 +131,7 @@ $rt-z-index: 9999 !default;
 }
 
 @media #{$rt-mobile} {
-  .Toastify__toast-container {
+  .#{$rt-namespace}__toast-container {
     width: 100vw;
     padding: 0;
     left: 0;
@@ -142,11 +158,7 @@ $rt-z-index: 9999 !default;
   }
 }
 
-@media #{$rt-mobile} {
-  .Toastify__toast {
-    margin-bottom: 0;
-  }
-}
+/* react-toastify/scss/_progressBar.scss */
 
 @keyframes trackProgress {
   0% {
@@ -158,7 +170,7 @@ $rt-z-index: 9999 !default;
   }
 }
 
-.Toastify__progress-bar {
+.#{$rt-namespace}__progress-bar {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -193,7 +205,7 @@ $rt-z-index: 9999 !default;
 }
 
 // entrance and exit animations
-.Toastify__bounce-enter {
+.#{$rt-namespace}__bounce-enter {
   &--top-left,
   &--bottom-left {
     animation-name: bounceInLeft;
@@ -213,7 +225,7 @@ $rt-z-index: 9999 !default;
   }
 }
 
-.Toastify__bounce-exit {
+.#{$rt-namespace}__bounce-exit {
   &--top-left,
   &--bottom-left {
     animation-name: bounceOutLeft;
@@ -233,23 +245,23 @@ $rt-z-index: 9999 !default;
   }
 }
 
-.Toastify__zoom-enter {
+.#{$rt-namespace}__zoom-enter {
   animation-name: zoomIn;
 }
 
-.Toastify__zoom-exit {
+.#{$rt-namespace}__zoom-exit {
   animation-name: zoomOut;
 }
 
-.Toastify__flip-enter {
+.#{$rt-namespace}__flip-enter {
   animation-name: flipIn;
 }
 
-.Toastify__flip-exit {
+.#{$rt-namespace}__flip-exit {
   animation-name: flipOut;
 }
 
-.Toastify__slide-enter {
+.#{$rt-namespace}__slide-enter {
   &--top-left,
   &--bottom-left {
     animation-name: slideInLeft;
@@ -269,7 +281,7 @@ $rt-z-index: 9999 !default;
   }
 }
 
-.Toastify__slide-exit {
+.#{$rt-namespace}__slide-exit {
   &--top-left,
   &--bottom-left {
     animation-name: slideOutLeft;
@@ -289,7 +301,9 @@ $rt-z-index: 9999 !default;
   }
 }
 
-.Toastify__close-button {
+/* react-toastify/scss/_closeButton.scss */
+
+.#{$rt-namespace}__close-button {
   opacity: 0.5;
 
   &:hover {
@@ -297,7 +311,9 @@ $rt-z-index: 9999 !default;
   }
 }
 
-.Toastify__toast--warning,
-.Toastify__toast--default {
-  color: map-deep-get($colors-render, 'text', 'dark');
+.#{$rt-namespace}__toast--warning,
+.#{$rt-namespace}__toast--default {
+  color: map-deep-get($colors-render, "text", "dark");
+}
+
 }
