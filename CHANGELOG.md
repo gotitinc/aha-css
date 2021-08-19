@@ -2,6 +2,8 @@
 ### Fixed
 * SCSS: TopMenu-itemAfter, TopMenu-itemBefore of TopMenu-subMenu has wrong position
 * CSSUtilities: u-fontRegular, u-fontMedium, u-fontBold are now using variables
+* CSSUtilities: fix color of a:hover
+* CSSUtilities: remove font-weight 400 from u-text400
 
 ## Release 2.0.3 - December 23, 2020
 ### Fixed
